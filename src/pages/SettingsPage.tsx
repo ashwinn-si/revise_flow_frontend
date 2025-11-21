@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAuth } from '../contexts/AuthContext';
-import { googleAPI } from '../services/api';
 
 const SettingsPage: React.FC = () => {
   const { user, logout } = useAuth();
-  const [twoFactorEnabled, setTwoFactorEnabled] = useState(user?.twoFactorEnabled || false);
   const [timezone, setTimezone] = useState(user?.timezone || 'UTC');
   const [loading, setLoading] = useState(false);
 
