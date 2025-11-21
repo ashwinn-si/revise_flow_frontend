@@ -9,15 +9,7 @@ const SettingsPage: React.FC = () => {
   const [timezone, setTimezone] = useState(user?.timezone || 'UTC');
   const [loading, setLoading] = useState(false);
 
-  const handleTwoFactorToggle = async () => {
-    setLoading(true);
-    // TODO: Implement 2FA toggle API call
-    setTimeout(() => {
-      setTwoFactorEnabled(!twoFactorEnabled);
-      toast.success('Two-factor authentication updated');
-      setLoading(false);
-    }, 1000);
-  };
+
 
   const handleTimezoneChange = async (newTimezone: string) => {
     setLoading(true);
@@ -29,9 +21,7 @@ const SettingsPage: React.FC = () => {
     }, 1000);
   };
 
-  const handleGoogleCalendarConnect = () => {
-    googleAPI.startOAuth();
-  };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30">
