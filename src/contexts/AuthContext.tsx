@@ -37,7 +37,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   // Handle auth failure events
   useEffect(() => {
     const handleAuthFailure = () => {
-      console.log('Auth failure detected - clearing user state');
       setUser(null);
       toast.error('Your session has expired. Please login again.');
       navigate('/login', { replace: true });
@@ -54,10 +53,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   useEffect(() => {
     const initializeAuth = async () => {
       try {
-        console.log('Initializing auth...');
         const success = await refreshAuth();
         if (!success) {
-          console.log('Initial auth refresh failed');
           setUser(null);
         }
       } catch (error) {
@@ -87,8 +84,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
       return false;
     } catch (error: any) {
-      console.log('Refresh auth failed:', error.response?.status);
-
       // If it's 401, clear auth state but don't show error (handled elsewhere)
       if (error.response?.status === 401) {
         setUser(null);

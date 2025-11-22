@@ -31,13 +31,11 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
 
   useEffect(() => {
     if (task) {
-      console.log('TaskModal: Editing task:', task);
       setTitle(task.title || '');
       setNotes(task.notes || '');
       setCompletedDate(formatDateForInput(task.completedDate) || selectedDate);
       setRevisions(task.revisions?.map((r: any) => formatDateForInput(r.scheduledDate)) || []);
     } else {
-      console.log('TaskModal: Creating new task for date:', selectedDate);
       // Set default revisions for new task (3rd and 7th day)
       const completed = new Date(selectedDate);
       const revision1 = new Date(completed);
@@ -58,12 +56,6 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
     setError('');
 
     try {
-      console.log('Submitting task:', {
-        isEditing,
-        taskId: task?.id || task?._id,
-        data: { title, notes, completedDate, revisions }
-      });
-
       if (isEditing) {
         const response = await tasksAPI.update(task.id || task._id, {
           title,
@@ -71,7 +63,6 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
           completedDate,
           revisions,
         });
-        console.log('Update response:', response.data);
         toast.success('Task updated successfully!');
       } else {
         const response = await tasksAPI.create({
@@ -80,13 +71,11 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
           completedDate,
           revisions,
         });
-        console.log('Create response:', response.data);
         toast.success('Task created successfully!');
       }
 
       onSave();
     } catch (err: any) {
-      console.error('Task save error:', err);
       const errorMessage = err.response?.data?.message ||
         err.response?.data?.error ||
         err.message ||

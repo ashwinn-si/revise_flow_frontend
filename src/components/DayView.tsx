@@ -36,24 +36,14 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
       setLoading(true);
       setError('');
 
-      console.log('Fetching day data for:', selectedDate);
-
       const response = await calendarAPI.getDay(selectedDate);
-      console.log('Calendar API response:', response.data);
 
       // Access data from response.data.data because the API wraps the response in { success: true, data: { ... } }
       const dayData = response.data.data || response.data;
-      console.log('Day data extracted:', dayData);
 
       setCompletedTasks(dayData.completedTasks || []);
       setRevisionsDue(dayData.revisionsScheduledForDate || []);
-
-      console.log('Set state:', {
-        completedTasks: dayData.completedTasks?.length || 0,
-        revisions: dayData.revisionsScheduledForDate?.length || 0
-      });
     } catch (err: any) {
-      console.error('Failed to fetch day data:', err);
       setError('Failed to load data for this day');
       setCompletedTasks([]);
       setRevisionsDue([]);
@@ -63,7 +53,6 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
   };
 
   const handleRefresh = async () => {
-    console.log('Refreshing day data...');
     await fetchDayData();
   };
 
@@ -78,12 +67,8 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
       return;
     }
 
-    console.log('Updating revision status:', { revisionId, taskId: revision.taskId, newStatus });
-
     try {
       const response = await tasksAPI.updateRevisionStatus(revision.taskId, revisionId, newStatus);
-
-      console.log('Status update response:', response.data);
 
       // Handle postpone response with additional info
       if (newStatus === 'postponed' && response.data.postponeInfo) {
@@ -101,14 +86,11 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
 
         // Refresh the day data to get updated revisions
         try {
-          console.log('Refreshing day data after postpone...');
           const refreshResponse = await calendarAPI.getDay(selectedDate);
           const dayData = refreshResponse.data.data || refreshResponse.data;
           setCompletedTasks(dayData.completedTasks || []);
           setRevisionsDue(dayData.revisionsScheduledForDate || []);
-          console.log('Day data refreshed successfully');
         } catch (refreshError) {
-          console.error('Failed to refresh day data:', refreshError);
           // Keep the optimistic update if refresh fails
         }
       } else {
@@ -122,13 +104,6 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
         toast.success(`Revision marked as ${newStatus}`);
       }
     } catch (error: any) {
-      console.error('Failed to update revision status:', error);
-      console.error('Error details:', {
-        status: error.response?.status,
-        data: error.response?.data,
-        message: error.message
-      });
-
       const errorMessage = error.response?.data?.error || error.response?.data?.message || error.message || 'Failed to update revision status';
       toast.error(errorMessage);
     }
