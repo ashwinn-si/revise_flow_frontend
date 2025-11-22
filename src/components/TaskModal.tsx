@@ -57,7 +57,7 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
 
     try {
       if (isEditing) {
-        const response = await tasksAPI.update(task.id || task._id, {
+        await tasksAPI.update(task.id || task._id, {
           title,
           notes,
           completedDate,
@@ -65,7 +65,7 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
         });
         toast.success('Task updated successfully!');
       } else {
-        const response = await tasksAPI.create({
+        await tasksAPI.create({
           title,
           notes,
           completedDate,
