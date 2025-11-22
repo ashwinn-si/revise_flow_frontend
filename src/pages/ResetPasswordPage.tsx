@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { KeyRound, Eye, EyeOff, CheckCircle, AlertCircle } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { useAuth } from '../contexts/AuthContext';
+import Navbar from '../components/Navbar';
 
 const ResetPasswordPage: React.FC = () => {
   const [password, setPassword] = useState('');
@@ -82,20 +83,25 @@ const ResetPasswordPage: React.FC = () => {
 
   if (isTokenValid === null) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
-          <p className="mt-4 text-text-secondary">Verifying reset token...</p>
+      <>
+        <Navbar showAuthButtons={false} />
+        <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
+            <p className="mt-4 text-text-secondary">Verifying reset token...</p>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   if (isTokenValid === false) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 px-4">
-        <div className="w-full max-w-md">
-          <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl text-center">
+      <>
+        <Navbar showAuthButtons={false} />
+        <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 px-4">
+          <div className="w-full max-w-md">
+            <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl text-center">
             <div className="mx-auto w-16 h-16 bg-gradient-to-r from-accent-error to-red-600 rounded-full flex items-center justify-center mb-6">
               <AlertCircle className="w-8 h-8 text-white" />
             </div>
@@ -119,14 +125,16 @@ const ResetPasswordPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 px-4">
-      <div className="w-full max-w-md">
-        <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl">
+    <>
+      <Navbar showAuthButtons={false} />
+      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 px-4">
+        <div className="w-full max-w-md">
+          <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl">
           <div className="text-center mb-8">
             {isSuccess ? (
               <div className="space-y-4">

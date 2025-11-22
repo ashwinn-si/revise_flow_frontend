@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAuth } from '../contexts/AuthContext';
+import Navbar from '../components/Navbar';
 
 const SettingsPage: React.FC = () => {
   const { user, logout } = useAuth();
@@ -22,74 +23,76 @@ const SettingsPage: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30">
-      <div className="max-w-4xl mx-auto px-4 py-8 md:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-4 mb-6">
-            <button
-              onClick={() => window.history.back()}
-              className="p-3 bg-surface border border-border rounded-2xl hover:bg-background-secondary transition-colors shadow-sm"
-            >
-              <svg className="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <div>
-              <h1 className="text-3xl font-bold text-text-primary">Settings</h1>
-              <p className="mt-1 text-text-secondary">Manage your account and preferences</p>
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30">
+        <div className="max-w-4xl mx-auto px-4 py-8 md:px-6 lg:px-8">
+          {/* Header */}
+          <div className="mb-8">
+            <div className="flex items-center space-x-4 mb-6">
+              <button
+                onClick={() => window.history.back()}
+                className="p-3 bg-surface border border-border rounded-2xl hover:bg-background-secondary transition-colors shadow-sm"
+              >
+                <svg className="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <div>
+                <h1 className="text-3xl font-bold text-text-primary">Settings</h1>
+                <p className="mt-1 text-text-secondary">Manage your account and preferences</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="grid gap-6 md:gap-8">
-          {/* Account Section */}
-          <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-lg">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="p-2 bg-primary-100 rounded-xl">
-                <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+          <div className="grid gap-6 md:gap-8">
+            {/* Account Section */}
+            <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-lg">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="p-2 bg-primary-100 rounded-xl">
+                  <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </div>
+                <h2 className="text-xl font-semibold text-text-primary">Account Information</h2>
               </div>
-              <h2 className="text-xl font-semibold text-text-primary">Account Information</h2>
-            </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="space-y-2">
-                <label className="block text-sm font-semibold text-text-primary">
-                  Email Address
-                </label>
-                <div className="p-4 bg-background border border-border rounded-2xl">
-                  <p className="text-text-primary font-medium">{user?.email}</p>
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="block text-sm font-semibold text-text-primary">
+                    Email Address
+                  </label>
+                  <div className="p-4 bg-background border border-border rounded-2xl">
+                    <p className="text-text-primary font-medium">{user?.email}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block text-sm font-semibold text-text-primary">
+                    Timezone
+                  </label>
+                  <select
+                    value={timezone}
+                    onChange={(e) => handleTimezoneChange(e.target.value)}
+                    className="w-full px-4 py-4 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-200 text-text-primary disabled:opacity-50"
+                    disabled={loading}
+                  >
+                    <option value="UTC">UTC (Coordinated Universal Time)</option>
+                    <option value="America/New_York">Eastern Time (US & Canada)</option>
+                    <option value="America/Chicago">Central Time (US & Canada)</option>
+                    <option value="America/Denver">Mountain Time (US & Canada)</option>
+                    <option value="America/Los_Angeles">Pacific Time (US & Canada)</option>
+                    <option value="Europe/London">London</option>
+                    <option value="Europe/Paris">Paris</option>
+                    <option value="Asia/Tokyo">Tokyo</option>
+                    <option value="Australia/Sydney">Sydney</option>
+                  </select>
                 </div>
               </div>
-
-              <div className="space-y-2">
-                <label className="block text-sm font-semibold text-text-primary">
-                  Timezone
-                </label>
-                <select
-                  value={timezone}
-                  onChange={(e) => handleTimezoneChange(e.target.value)}
-                  className="w-full px-4 py-4 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-200 text-text-primary disabled:opacity-50"
-                  disabled={loading}
-                >
-                  <option value="UTC">UTC (Coordinated Universal Time)</option>
-                  <option value="America/New_York">Eastern Time (US & Canada)</option>
-                  <option value="America/Chicago">Central Time (US & Canada)</option>
-                  <option value="America/Denver">Mountain Time (US & Canada)</option>
-                  <option value="America/Los_Angeles">Pacific Time (US & Canada)</option>
-                  <option value="Europe/London">London</option>
-                  <option value="Europe/Paris">Paris</option>
-                  <option value="Asia/Tokyo">Tokyo</option>
-                  <option value="Australia/Sydney">Sydney</option>
-                </select>
-              </div>
             </div>
-          </div>
 
-          {/* Security Section */}
-          {/* <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-lg">
+            {/* Security Section */}
+            {/* <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-lg">
             <div className="flex items-center space-x-3 mb-6">
               <div className="p-2 bg-secondary-100 rounded-xl">
                 <svg className="w-6 h-6 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -121,7 +124,7 @@ const SettingsPage: React.FC = () => {
           </div>
 
           {/* Integrations Section */}
-          {/* <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-lg">
+            {/* <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-lg">
             <div className="flex items-center space-x-3 mb-6">
               <div className="p-2 bg-accent-success/10 rounded-xl">
                 <svg className="w-6 h-6 text-accent-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,19 +157,20 @@ const SettingsPage: React.FC = () => {
             </div>
           </div> */}
 
-          {/* Actions */}
-          <div className="flex justify-end space-x-4">
-            <button
-              onClick={logout}
-              className="px-6 py-3 bg-accent-error/10 hover:bg-accent-error/20 text-accent-error font-semibold rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-error/20"
-            >
-              Sign Out
-            </button>
+            {/* Actions */}
+            <div className="flex justify-end space-x-4">
+              <button
+                onClick={logout}
+                className="px-6 py-3 bg-accent-error/10 hover:bg-accent-error/20 text-accent-error font-semibold rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-error/20"
+              >
+                Sign Out
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </>
+  )
 };
 
 export default SettingsPage;

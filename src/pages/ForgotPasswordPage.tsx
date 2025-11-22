@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Mail, ArrowLeft, CheckCircle } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { useAuth } from '../contexts/AuthContext';
+import Navbar from '../components/Navbar';
 
 const ForgotPasswordPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -37,18 +38,20 @@ const ForgotPasswordPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 px-4">
-      <div className="w-full max-w-md">
-        {/* Back to Login Link */}
-        <div className="mb-8">
-          <Link
-            to="/login"
-            className="inline-flex items-center text-text-secondary hover:text-primary-600 transition-colors duration-200"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Login
-          </Link>
-        </div>
+    <>
+      <Navbar showAuthButtons={false} />
+      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 px-4">
+        <div className="w-full max-w-md">
+          {/* Back to Login Link */}
+          <div className="mb-8">
+            <Link
+              to="/login"
+              className="inline-flex items-center text-text-secondary hover:text-primary-600 transition-colors duration-200"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Login
+            </Link>
+          </div>
 
         {/* Main Card */}
         <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl">
@@ -146,8 +149,9 @@ const ForgotPasswordPage: React.FC = () => {
             </form>
           )}
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

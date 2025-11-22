@@ -8,6 +8,7 @@ import {
   Smartphone,
   Shield
 } from 'lucide-react';
+import Navbar from '../components/Navbar';
 
 const HomePage: React.FC = () => {
   const features = [
@@ -45,30 +46,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <h1 className="text-xl font-bold text-gray-900">📝 RevisionFlow</h1>
-            </div>
-            <div className="flex space-x-4">
-              <Link
-                to="/login"
-                className="text-text-secondary hover:text-text-primary px-3 py-2 rounded-lg text-sm font-medium transition-colors"
-              >
-                Login
-              </Link>
-              <Link
-                to="/signup"
-                className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-              >
-                Sign Up
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
