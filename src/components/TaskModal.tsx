@@ -114,22 +114,22 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in">
-      <div className="bg-surface/95 backdrop-blur-sm border border-border/50 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in">
-        <div className="sticky top-0 bg-surface/95 backdrop-blur-sm border-b border-border/50 px-8 py-6 rounded-t-3xl">
+      <div className="bg-surface/95 dark:bg-surface-dark/95 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in">
+        <div className="sticky top-0 bg-surface/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-border/50 dark:border-border-dark/50 px-8 py-6 rounded-t-3xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-primary-100 rounded-2xl">
-                <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="p-2 bg-primary-100 dark:bg-primary-900/50 rounded-2xl">
+                <svg className="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-bold text-text-primary">
+              <h2 className="text-2xl font-bold text-text-primary dark:text-text-dark-primary">
                 {isEditing ? 'Edit Task' : 'Create New Task'}
               </h2>
             </div>
             <button
               onClick={onClose}
-              className="p-2 text-text-tertiary hover:text-text-primary hover:bg-background-secondary rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+              className="p-2 text-text-tertiary dark:text-text-dark-tertiary hover:text-text-primary dark:hover:text-text-dark-primary hover:bg-background-secondary dark:hover:bg-background-dark-secondary rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
             >
               <X size={20} />
             </button>
@@ -139,7 +139,7 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
         <form onSubmit={handleSubmit} className="p-8">
           <div className="space-y-6">
             <div className="space-y-2">
-              <label htmlFor="title" className="block text-sm font-semibold text-text-primary">
+              <label htmlFor="title" className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
                 Task Title *
               </label>
               <input
@@ -148,14 +148,14 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="What did you complete?"
-                className="w-full px-4 py-3.5 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-200 text-text-primary placeholder-text-tertiary"
+                className="w-full px-4 py-3.5 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 dark:focus:ring-primary-400/30 dark:focus:border-primary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary placeholder-text-tertiary dark:placeholder-text-dark-tertiary"
                 required
               />
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="notes" className="block text-sm font-semibold text-text-primary">
-                Notes <span className="text-text-tertiary font-normal">(optional)</span>
+              <label htmlFor="notes" className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
+                Notes <span className="text-text-tertiary dark:text-text-dark-tertiary font-normal">(optional)</span>
               </label>
               <textarea
                 id="notes"
@@ -163,12 +163,12 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Any additional details or insights..."
                 rows={4}
-                className="w-full px-4 py-3.5 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-200 text-text-primary placeholder-text-tertiary resize-none"
+                className="w-full px-4 py-3.5 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 dark:focus:ring-primary-400/30 dark:focus:border-primary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary placeholder-text-tertiary dark:placeholder-text-dark-tertiary resize-none"
               />
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="completedDate" className="block text-sm font-semibold text-text-primary">
+              <label htmlFor="completedDate" className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
                 Completed Date *
               </label>
               <input
@@ -176,20 +176,20 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
                 type="date"
                 value={completedDate}
                 onChange={(e) => setCompletedDate(e.target.value)}
-                className="w-full px-4 py-3.5 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-200 text-text-primary"
+                className="w-full px-4 py-3.5 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 dark:focus:ring-primary-400/30 dark:focus:border-primary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary"
                 required
               />
             </div>
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <label className="text-sm font-semibold text-text-primary">
+                <label className="text-sm font-semibold text-text-primary dark:text-text-dark-primary">
                   Revision Schedule
                 </label>
                 <button
                   type="button"
                   onClick={addRevision}
-                  className="flex items-center space-x-2 px-3 py-1.5 text-sm font-medium text-primary-600 hover:text-primary-700 hover:bg-primary-50 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                  className="flex items-center space-x-2 px-3 py-1.5 text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-950/50 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
                 >
                   <Plus size={16} />
                   <span>Add Revision</span>
@@ -198,20 +198,20 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
 
               <div className="space-y-3">
                 {revisions.map((date, index) => (
-                  <div key={index} className="flex items-center space-x-3 p-3 bg-background border border-border rounded-2xl">
-                    <div className="p-2 bg-secondary-100 rounded-xl">
-                      <Calendar size={16} className="text-secondary-600" />
+                  <div key={index} className="flex items-center space-x-3 p-3 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl">
+                    <div className="p-2 bg-secondary-100 dark:bg-secondary-900/50 rounded-xl">
+                      <Calendar size={16} className="text-secondary-600 dark:text-secondary-400" />
                     </div>
                     <input
                       type="date"
                       value={date}
                       onChange={(e) => updateRevision(index, e.target.value)}
-                      className="flex-1 px-3 py-2 bg-transparent border-none focus:outline-none text-text-primary"
+                      className="flex-1 px-3 py-2 bg-transparent border-none focus:outline-none text-text-primary dark:text-text-dark-primary"
                     />
                     <button
                       type="button"
                       onClick={() => removeRevision(index)}
-                      className="p-2 text-accent-error hover:bg-accent-error/10 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-error/20"
+                      className="p-2 text-accent-error hover:bg-accent-error/10 dark:hover:bg-accent-error/20 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-error/20"
                     >
                       <Minus size={16} />
                     </button>
@@ -220,13 +220,13 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
 
                 {revisions.length === 0 && (
                   <div className="text-center py-8">
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-text-tertiary/10 rounded-2xl mb-3">
-                      <Calendar className="w-6 h-6 text-text-tertiary" />
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-text-tertiary/10 dark:bg-text-dark-tertiary/20 rounded-2xl mb-3">
+                      <Calendar className="w-6 h-6 text-text-tertiary dark:text-text-dark-tertiary" />
                     </div>
-                    <p className="text-text-tertiary font-medium">
+                    <p className="text-text-tertiary dark:text-text-dark-tertiary font-medium">
                       No revisions scheduled
                     </p>
-                    <p className="text-text-disabled text-sm mt-1">
+                    <p className="text-text-disabled dark:text-text-dark-disabled text-sm mt-1">
                       Click "Add Revision" to schedule review dates
                     </p>
                   </div>
@@ -236,16 +236,16 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, selectedDate, onClose, onSa
           </div>
 
           {error && (
-            <div className="mt-6 bg-accent-error/10 border border-accent-error/20 text-accent-error px-4 py-3.5 rounded-2xl text-sm font-medium">
+            <div className="mt-6 bg-accent-error/10 dark:bg-accent-error/20 border border-accent-error/20 dark:border-accent-error/30 text-accent-error px-4 py-3.5 rounded-2xl text-sm font-medium">
               {error}
             </div>
           )}
 
-          <div className="flex space-x-3 mt-8 pt-6 border-t border-border/30">
+          <div className="flex space-x-3 mt-8 pt-6 border-t border-border/30 dark:border-border-dark/30">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-3.5 px-6 border-2 border-border hover:border-border-secondary text-text-secondary hover:text-text-primary bg-background hover:bg-background-secondary rounded-2xl transition-all duration-200 font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+              className="flex-1 py-3.5 px-6 border-2 border-border dark:border-border-dark hover:border-border-secondary dark:hover:border-border-dark-secondary text-text-secondary dark:text-text-dark-secondary hover:text-text-primary dark:hover:text-text-dark-primary bg-background dark:bg-background-dark hover:bg-background-secondary dark:hover:bg-background-dark-secondary rounded-2xl transition-all duration-200 font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500/20"
             >
               Cancel
             </button>

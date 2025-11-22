@@ -38,19 +38,19 @@ const CalendarStrip: React.FC<CalendarStripProps> = ({ selectedDate, onDateSelec
   return (
     <div className="w-full">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold text-text-primary">
+        <h2 className="text-2xl font-bold text-text-primary dark:text-text-dark-primary">
           {format(selectedDateObj, 'MMMM yyyy')}
         </h2>
         <div className="flex space-x-1">
           <button
             onClick={handlePrevious}
-            className="p-2 text-text-secondary hover:text-text-primary hover:bg-background-secondary rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+            className="p-2 text-text-secondary dark:text-text-dark-secondary hover:text-text-primary dark:hover:text-text-dark-primary hover:bg-background-secondary dark:hover:bg-background-dark-secondary rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
           >
             <ChevronLeft size={18} />
           </button>
           <button
             onClick={handleNext}
-            className="p-2 text-text-secondary hover:text-text-primary hover:bg-background-secondary rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+            className="p-2 text-text-secondary dark:text-text-dark-secondary hover:text-text-primary dark:hover:text-text-dark-primary hover:bg-background-secondary dark:hover:bg-background-dark-secondary rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
           >
             <ChevronRight size={18} />
           </button>
@@ -63,10 +63,10 @@ const CalendarStrip: React.FC<CalendarStripProps> = ({ selectedDate, onDateSelec
             key={day.dateString}
             onClick={() => onDateSelect(day.dateString)}
             className={`flex flex-col items-center justify-center p-3 rounded-2xl min-h-[72px] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20 ${day.isSelected
-                ? 'bg-gradient-to-br from-primary-500 to-primary-600 text-white shadow-lg'
-                : day.isToday
-                  ? 'bg-gradient-to-br from-primary-50 to-primary-100 text-primary-700 border-2 border-primary-300'
-                  : 'bg-surface hover:bg-background-secondary text-text-primary border border-border hover:border-primary-200'
+              ? 'bg-gradient-to-br from-primary-500 to-primary-600 text-white shadow-lg'
+              : day.isToday
+                ? 'bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/50 dark:to-primary-800/50 text-primary-700 dark:text-primary-400 border-2 border-primary-300 dark:border-primary-600'
+                : 'bg-surface dark:bg-surface-dark hover:bg-background-secondary dark:hover:bg-background-dark-secondary text-text-primary dark:text-text-dark-primary border border-border dark:border-border-dark hover:border-primary-200 dark:hover:border-primary-700'
               }`}
           >
             <span className="text-xs font-medium uppercase tracking-wide mb-1 opacity-75">

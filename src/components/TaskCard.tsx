@@ -96,13 +96,13 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, type, onEdit, onStatusChange,
   };
 
   return (
-    <div className="bg-background/60 border border-border/50 rounded-2xl p-5 transition-all duration-200 hover:shadow-md hover:border-border-secondary group">
+    <div className="bg-background/60 dark:bg-background-dark/60 border border-border/50 dark:border-border-dark/50 rounded-2xl p-5 transition-all duration-200 hover:shadow-md hover:border-border-secondary dark:hover:border-border-dark-secondary group">
       <div className="flex items-start justify-between">
         <div className="flex-1">
           <div className="flex items-center space-x-3 mb-3">
             <div className={`p-1.5 rounded-xl ${type === 'completed'
-                ? 'bg-secondary-100 text-secondary-600'
-                : 'bg-primary-100 text-primary-600'
+              ? 'bg-secondary-100 dark:bg-secondary-900/50 text-secondary-600 dark:text-secondary-400'
+              : 'bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400'
               }`}>
               {type === 'completed' ? (
                 <CheckCircle className="w-4 h-4" />
@@ -110,15 +110,15 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, type, onEdit, onStatusChange,
                 <Clock className="w-4 h-4" />
               )}
             </div>
-            <h3 className="font-semibold text-text-primary text-base leading-tight">{task.title}</h3>
+            <h3 className="font-semibold text-text-primary dark:text-text-dark-primary text-base leading-tight">{task.title}</h3>
           </div>
 
           {task.notes && (
-            <p className="text-sm text-text-secondary mb-3 leading-relaxed pl-8">{task.notes}</p>
+            <p className="text-sm text-text-secondary dark:text-text-dark-secondary mb-3 leading-relaxed pl-8">{task.notes}</p>
           )}
 
           {type === 'revision' && task.originalDate && (
-            <p className="text-xs text-text-tertiary pl-8">
+            <p className="text-xs text-text-tertiary dark:text-text-dark-tertiary pl-8">
               Originally completed: {new Date(task.originalDate).toLocaleDateString('en-US', {
                 month: 'short',
                 day: 'numeric',
@@ -134,8 +134,8 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, type, onEdit, onStatusChange,
               <button
                 onClick={handleStatusToggle}
                 className={`px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-opacity-20 ${task.status === 'done'
-                    ? 'bg-secondary-100 text-secondary-700 hover:bg-secondary-200 focus:ring-secondary-500'
-                    : 'bg-gradient-to-r from-secondary-500 to-secondary-600 text-white hover:from-secondary-600 hover:to-secondary-700 shadow-sm focus:ring-secondary-500'
+                  ? 'bg-secondary-100 dark:bg-secondary-900/50 text-secondary-700 dark:text-secondary-400 hover:bg-secondary-200 dark:hover:bg-secondary-800/50 focus:ring-secondary-500'
+                  : 'bg-gradient-to-r from-secondary-500 to-secondary-600 text-white hover:from-secondary-600 hover:to-secondary-700 shadow-sm focus:ring-secondary-500'
                   }`}
               >
                 {task.status === 'done' ? 'Completed' : 'Mark Done'}
@@ -144,7 +144,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, type, onEdit, onStatusChange,
               {task.status !== 'skipped' && task.status !== 'postponed' && task.status !== 'done' && (
                 <button
                   onClick={handlePostpone}
-                  className="px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 bg-background border border-border text-text-secondary hover:bg-background-secondary hover:border-border-secondary hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                  className="px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 bg-background dark:bg-background-dark border border-border dark:border-border-dark text-text-secondary dark:text-text-dark-secondary hover:bg-background-secondary dark:hover:bg-background-dark-secondary hover:border-border-secondary dark:hover:border-border-dark-secondary hover:text-text-primary dark:hover:text-text-dark-primary focus:outline-none focus:ring-2 focus:ring-primary-500/20"
                 >
                   Postpone
                 </button>
@@ -154,8 +154,8 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, type, onEdit, onStatusChange,
                 onClick={handleAddToCalendar}
                 disabled={isAddingToCalendar}
                 className={`p-2.5 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20 ${isAddingToCalendar
-                    ? 'opacity-50 cursor-not-allowed text-text-disabled'
-                    : 'text-text-tertiary hover:text-primary-600 hover:bg-primary-50'
+                  ? 'opacity-50 cursor-not-allowed text-text-disabled dark:text-text-dark-disabled'
+                  : 'text-text-tertiary dark:text-text-dark-tertiary hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-950/50'
                   }`}
                 title="Add to Google Calendar"
               >
@@ -171,7 +171,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, type, onEdit, onStatusChange,
           {onEdit && (
             <button
               onClick={() => onEdit(task)}
-              className="p-2.5 text-text-tertiary hover:text-text-primary hover:bg-background-secondary rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+              className="p-2.5 text-text-tertiary dark:text-text-dark-tertiary hover:text-text-primary dark:hover:text-text-dark-primary hover:bg-background-secondary dark:hover:bg-background-dark-secondary rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
               title="Edit task"
             >
               <Edit size={16} />
@@ -181,12 +181,12 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, type, onEdit, onStatusChange,
       </div>
 
       {type === 'revision' && (task.status === 'skipped' || task.status === 'postponed' || task.status === 'done') && (
-        <div className="mt-4 pt-3 border-t border-border/30">
+        <div className="mt-4 pt-3 border-t border-border/30 dark:border-border-dark/30">
           <span className={`inline-flex items-center px-3 py-1.5 rounded-xl text-xs font-medium ${task.status === 'done'
-              ? 'bg-secondary-100 text-secondary-700'
-              : task.status === 'postponed'
-                ? 'bg-accent-warning/10 text-accent-warning'
-                : 'bg-text-disabled/10 text-text-disabled'
+            ? 'bg-secondary-100 dark:bg-secondary-900/50 text-secondary-700 dark:text-secondary-400'
+            : task.status === 'postponed'
+              ? 'bg-accent-warning/10 dark:bg-accent-warning/20 text-accent-warning'
+              : 'bg-text-disabled/10 dark:bg-text-dark-disabled/20 text-text-disabled dark:text-text-dark-disabled'
             }`}>
             Status: {task.status === 'done' ? 'Completed' : task.status === 'postponed' ? 'Postponed' : 'Skipped'}
           </span>

@@ -22,12 +22,12 @@ const LoadingModal: React.FC<LoadingModalProps> = ({
       <div className="flex items-center justify-center p-8">
         <div className="text-center">
           <div className="relative mb-4">
-            <Loader2 className="w-8 h-8 text-primary-500 animate-spin mx-auto" />
-            <div className="absolute inset-0 rounded-full border-2 border-primary-100 animate-pulse" />
+            <Loader2 className="w-8 h-8 text-primary-500 dark:text-primary-400 animate-spin mx-auto" />
+            <div className="absolute inset-0 rounded-full border-2 border-primary-100 dark:border-primary-900/50 animate-pulse" />
           </div>
-          <p className="text-sm font-medium text-text-primary">{title}</p>
+          <p className="text-sm font-medium text-text-primary dark:text-text-dark-primary">{title}</p>
           {message && (
-            <p className="text-xs text-text-secondary mt-1">{message}</p>
+            <p className="text-xs text-text-secondary dark:text-text-dark-secondary mt-1">{message}</p>
           )}
         </div>
       </div>
@@ -41,36 +41,36 @@ const LoadingModal: React.FC<LoadingModalProps> = ({
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm animate-fade-in" />
 
       {/* Modal Content */}
-      <div className="relative bg-surface/95 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-2xl animate-scale-in max-w-sm w-full mx-4">
+      <div className="relative bg-surface/95 dark:bg-surface-dark/95 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-8 shadow-2xl animate-scale-in max-w-sm w-full mx-4">
         <div className="text-center">
           {/* Loading Animation */}
           <div className="relative mb-6">
             {/* Spinning loader */}
-            <Loader2 className="w-12 h-12 text-primary-500 animate-spin mx-auto" />
+            <Loader2 className="w-12 h-12 text-primary-500 dark:text-primary-400 animate-spin mx-auto" />
 
             {/* Pulsing ring */}
-            <div className="absolute inset-0 rounded-full border-4 border-primary-100 animate-ping opacity-75" />
+            <div className="absolute inset-0 rounded-full border-4 border-primary-100 dark:border-primary-900/50 animate-ping opacity-75" />
 
             {/* Static ring */}
-            <div className="absolute inset-0 rounded-full border-2 border-primary-200" />
+            <div className="absolute inset-0 rounded-full border-2 border-primary-200 dark:border-primary-800" />
           </div>
 
           {/* Text Content */}
-          <h3 className="text-lg font-semibold text-text-primary mb-2">
+          <h3 className="text-lg font-semibold text-text-primary dark:text-text-dark-primary mb-2">
             {title}
           </h3>
 
           {message && (
-            <p className="text-sm text-text-secondary leading-relaxed">
+            <p className="text-sm text-text-secondary dark:text-text-dark-secondary leading-relaxed">
               {message}
             </p>
           )}
 
           {/* Progress dots animation */}
           <div className="flex justify-center items-center space-x-1 mt-4">
-            <div className="w-2 h-2 bg-primary-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-            <div className="w-2 h-2 bg-primary-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-            <div className="w-2 h-2 bg-primary-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+            <div className="w-2 h-2 bg-primary-400 dark:bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+            <div className="w-2 h-2 bg-primary-400 dark:bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+            <div className="w-2 h-2 bg-primary-400 dark:bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
           </div>
         </div>
       </div>
@@ -148,8 +148,8 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
 
   return (
     <div className={`relative ${className}`}>
-      <Loader2 className={`${sizeStyles[size]} text-primary-500 animate-spin`} />
-      <div className={`absolute inset-0 ${sizeStyles[size]} border-2 border-primary-100 rounded-full animate-pulse`} />
+      <Loader2 className={`${sizeStyles[size]} text-primary-500 dark:text-primary-400 animate-spin`} />
+      <div className={`absolute inset-0 ${sizeStyles[size]} border-2 border-primary-100 dark:border-primary-900/50 rounded-full animate-pulse`} />
     </div>
   );
 };

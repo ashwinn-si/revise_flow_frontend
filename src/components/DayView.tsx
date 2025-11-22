@@ -114,20 +114,20 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
   if (loading) {
     return (
       <div className="space-y-6">
-        <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-lg">
+        <div className="bg-surface/60 dark:bg-surface-dark/60 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-8 shadow-lg">
           <div className="animate-pulse">
-            <div className="h-6 bg-gradient-to-r from-border to-transparent rounded-2xl w-1/3 mb-6"></div>
+            <div className="h-6 bg-gradient-to-r from-border dark:from-border-dark to-transparent rounded-2xl w-1/3 mb-6"></div>
             <div className="space-y-4">
-              <div className="h-20 bg-gradient-to-r from-border/50 to-transparent rounded-2xl"></div>
-              <div className="h-20 bg-gradient-to-r from-border/30 to-transparent rounded-2xl"></div>
+              <div className="h-20 bg-gradient-to-r from-border/50 dark:from-border-dark/50 to-transparent rounded-2xl"></div>
+              <div className="h-20 bg-gradient-to-r from-border/30 dark:from-border-dark/30 to-transparent rounded-2xl"></div>
             </div>
           </div>
         </div>
-        <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-lg">
+        <div className="bg-surface/60 dark:bg-surface-dark/60 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-8 shadow-lg">
           <div className="animate-pulse">
-            <div className="h-6 bg-gradient-to-r from-border to-transparent rounded-2xl w-1/4 mb-6"></div>
+            <div className="h-6 bg-gradient-to-r from-border dark:from-border-dark to-transparent rounded-2xl w-1/4 mb-6"></div>
             <div className="space-y-4">
-              <div className="h-20 bg-gradient-to-r from-border/50 to-transparent rounded-2xl"></div>
+              <div className="h-20 bg-gradient-to-r from-border/50 dark:from-border-dark/50 to-transparent rounded-2xl"></div>
             </div>
           </div>
         </div>
@@ -137,9 +137,9 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
 
   if (error) {
     return (
-      <div className="bg-accent-error/10 border border-accent-error/20 rounded-3xl p-8 shadow-lg">
+      <div className="bg-accent-error/10 dark:bg-accent-error/20 border border-accent-error/20 dark:border-accent-error/30 rounded-3xl p-8 shadow-lg">
         <div className="text-center">
-          <div className="inline-flex items-center justify-center w-12 h-12 bg-accent-error/10 rounded-2xl mb-4">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-accent-error/10 dark:bg-accent-error/20 rounded-2xl mb-4">
             <svg className="w-6 h-6 text-accent-error" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
             </svg>
@@ -147,7 +147,7 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
           <p className="text-accent-error font-medium mb-4">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="bg-accent-error/10 hover:bg-accent-error/20 text-accent-error font-semibold px-6 py-2.5 rounded-2xl transition-all duration-200"
+            className="bg-accent-error/10 dark:bg-accent-error/20 hover:bg-accent-error/20 dark:hover:bg-accent-error/30 text-accent-error font-semibold px-6 py-2.5 rounded-2xl transition-all duration-200"
           >
             Try Again
           </button>
@@ -161,20 +161,20 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
       {/* Completed Tasks Section */}
       <div className="group">
         <div className="flex items-center space-x-3 mb-4">
-          <div className="p-2 bg-secondary-100 rounded-xl group-hover:bg-secondary-200 transition-colors">
-            <svg className="w-5 h-5 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="p-2 bg-secondary-100 dark:bg-secondary-900/50 rounded-xl group-hover:bg-secondary-200 dark:group-hover:bg-secondary-800/50 transition-colors">
+            <svg className="w-5 h-5 text-secondary-600 dark:text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h2 className="text-xl font-bold text-text-primary">
+          <h2 className="text-xl font-bold text-text-primary dark:text-text-dark-primary">
             Completed Tasks
           </h2>
           <div className="flex-1">
-            <div className="h-px bg-gradient-to-r from-border/50 to-transparent"></div>
+            <div className="h-px bg-gradient-to-r from-border/50 dark:from-border-dark/50 to-transparent"></div>
           </div>
         </div>
 
-        <div className="bg-surface/40 backdrop-blur-sm border border-border/30 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+        <div className="bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-sm border border-border/30 dark:border-border-dark/30 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
           {completedTasks.length > 0 ? (
             <div className="space-y-3">
               {completedTasks.map((task) => (
@@ -188,15 +188,15 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
             </div>
           ) : (
             <div className="text-center py-12">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-text-tertiary/10 rounded-2xl mb-4">
-                <svg className="w-8 h-8 text-text-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-text-tertiary/10 dark:bg-text-dark-tertiary/20 rounded-2xl mb-4">
+                <svg className="w-8 h-8 text-text-tertiary dark:text-text-dark-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <p className="text-text-tertiary font-medium">
+              <p className="text-text-tertiary dark:text-text-dark-tertiary font-medium">
                 No tasks completed on {format(new Date(selectedDate), 'MMM d, yyyy')}
               </p>
-              <p className="text-text-disabled text-sm mt-1">
+              <p className="text-text-disabled dark:text-text-dark-disabled text-sm mt-1">
                 Complete tasks to see them here
               </p>
             </div>
@@ -207,20 +207,20 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
       {/* Revisions Due Section */}
       <div className="group">
         <div className="flex items-center space-x-3 mb-4">
-          <div className="p-2 bg-primary-100 rounded-xl group-hover:bg-primary-200 transition-colors">
-            <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="p-2 bg-primary-100 dark:bg-primary-900/50 rounded-xl group-hover:bg-primary-200 dark:group-hover:bg-primary-800/50 transition-colors">
+            <svg className="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h2 className="text-xl font-bold text-text-primary">
+          <h2 className="text-xl font-bold text-text-primary dark:text-text-dark-primary">
             Revisions Due Today
           </h2>
           <div className="flex-1">
-            <div className="h-px bg-gradient-to-r from-border/50 to-transparent"></div>
+            <div className="h-px bg-gradient-to-r from-border/50 dark:from-border-dark/50 to-transparent"></div>
           </div>
         </div>
 
-        <div className="bg-surface/40 backdrop-blur-sm border border-border/30 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+        <div className="bg-surface/40 dark:bg-surface-dark/40 backdrop-blur-sm border border-border/30 dark:border-border-dark/30 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
           {revisionsDue.length > 0 ? (
             <div className="space-y-3">
               {revisionsDue.map((revision) => (
@@ -235,15 +235,15 @@ const DayView: React.FC<DayViewProps> = ({ selectedDate, onEditTask, refreshTrig
             </div>
           ) : (
             <div className="text-center py-12">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-text-tertiary/10 rounded-2xl mb-4">
-                <svg className="w-8 h-8 text-text-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-text-tertiary/10 dark:bg-text-dark-tertiary/20 rounded-2xl mb-4">
+                <svg className="w-8 h-8 text-text-tertiary dark:text-text-dark-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <p className="text-text-tertiary font-medium">
+              <p className="text-text-tertiary dark:text-text-dark-tertiary font-medium">
                 No revisions scheduled for today
               </p>
-              <p className="text-text-disabled text-sm mt-1">
+              <p className="text-text-disabled dark:text-text-dark-disabled text-sm mt-1">
                 Enjoy your day! Come back tomorrow for more reviews
               </p>
             </div>
