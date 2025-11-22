@@ -46,6 +46,16 @@ const LoginPage: React.FC = () => {
                 Welcome back!
               </h1>
               <p className="mt-2 text-text-secondary dark:text-text-dark-secondary">Sign in to continue to Revise Flow</p>
+              {useAuth().user && (
+                <div className="mt-4">
+                  <Link
+                    to="/dashboard"
+                    className="inline-flex items-center text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-500 font-medium transition-colors duration-200"
+                  >
+                    ← Go to Dashboard
+                  </Link>
+                </div>
+              )}
             </div>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-5">

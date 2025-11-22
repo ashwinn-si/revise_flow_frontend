@@ -9,8 +9,11 @@ import {
   Shield
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import { useAuth } from '../contexts/AuthContext';
 
 const HomePage: React.FC = () => {
+  const { user } = useAuth();
+
   const features = [
     {
       icon: Clock,
@@ -60,18 +63,29 @@ const HomePage: React.FC = () => {
             reminders using scientifically-backed intervals to optimize your learning retention.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/signup"
-              className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
-            >
-              Get Started Free
-            </Link>
-            <Link
-              to="/login"
-              className="border-2 border-border dark:border-border-dark hover:border-primary-300 dark:hover:border-primary-400 hover:bg-primary-50 dark:hover:bg-primary-950 text-text-primary dark:text-text-dark-primary px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-200"
-            >
-              Sign In
-            </Link>
+            {user ? (
+              <Link
+                to="/dashboard"
+                className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
+              >
+                Go to Dashboard
+              </Link>
+            ) : (
+              <>
+                <Link
+                  to="/signup"
+                  className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
+                >
+                  Get Started Free
+                </Link>
+                <Link
+                  to="/login"
+                  className="border-2 border-border dark:border-border-dark hover:border-primary-300 dark:hover:border-primary-400 hover:bg-primary-50 dark:hover:bg-primary-950 text-text-primary dark:text-text-dark-primary px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-200"
+                >
+                  Sign In
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -162,12 +176,21 @@ const HomePage: React.FC = () => {
           <p className="text-xl text-primary-100 mb-8">
             Join thousands of learners who have improved their retention with RevisionFlow.
           </p>
-          <Link
-            to="/signup"
-            className="bg-white hover:bg-gray-50 text-primary-600 px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg inline-block"
-          >
-            Start Your Free Account
-          </Link>
+          {user ? (
+            <Link
+              to="/dashboard"
+              className="bg-white hover:bg-gray-50 text-primary-600 px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg inline-block"
+            >
+              Go to Dashboard
+            </Link>
+          ) : (
+            <Link
+              to="/signup"
+              className="bg-white hover:bg-gray-50 text-primary-600 px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg inline-block"
+            >
+              Start Your Free Account
+            </Link>
+          )}
         </div>
       </div>
 

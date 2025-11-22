@@ -3,11 +3,10 @@ import { toast } from 'react-toastify';
 import { useAuth } from '../contexts/AuthContext';
 import Navbar from '../components/Navbar';
 import ThemeToggle from '../components/ThemeToggle';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SettingsPage: React.FC = () => {
   const { user, logout } = useAuth();
-  const navigator = useNavigate();
   const [timezone, setTimezone] = useState(user?.timezone || 'UTC');
   const [loading, setLoading] = useState(false);
 
@@ -33,14 +32,14 @@ const SettingsPage: React.FC = () => {
           {/* Header */}
           <div className="mb-8">
             <div className="flex items-center space-x-4 mb-6">
-              <button
-                onClick={() => navigator("/dashboard")}
+              <Link
+                to="/dashboard"
                 className="p-3 bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-2xl hover:bg-background-secondary dark:hover:bg-background-dark-secondary transition-colors shadow-sm"
               >
                 <svg className="w-5 h-5 text-text-secondary dark:text-text-dark-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-              </button>
+              </Link>
               <div>
                 <h1 className="text-3xl font-bold text-text-primary dark:text-text-dark-primary">Settings</h1>
                 <p className="mt-1 text-text-secondary dark:text-text-dark-secondary">Manage your account and preferences</p>
