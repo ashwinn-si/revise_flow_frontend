@@ -131,8 +131,9 @@ const LoginPage: React.FC = () => {
             onSuccess={handleTwoFactorClose}
           />
         )}
-      </>
-      );
+      </div>
+    </>
+  );
 };
 
-      export default LoginPage;
+export default LoginPage;

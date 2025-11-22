@@ -59,74 +59,75 @@ const VerifyEmailPage: React.FC = () => {
                 Email Verification
               </h1>
             </div>
-          <div className="text-center">
-            {status === 'loading' && (
-              <div className="space-y-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-2xl">
-                  <Loader className="w-8 h-8 text-primary-600 animate-spin" />
+            <div className="text-center">
+              {status === 'loading' && (
+                <div className="space-y-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-2xl">
+                    <Loader className="w-8 h-8 text-primary-600 animate-spin" />
+                  </div>
+                  <div className="space-y-3">
+                    <h2 className="text-2xl font-bold text-text-primary">
+                      Verifying your email
+                    </h2>
+                    <p className="text-text-secondary">
+                      Please wait while we verify your email address...
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-3">
-                  <h2 className="text-2xl font-bold text-text-primary">
-                    Verifying your email
-                  </h2>
-                  <p className="text-text-secondary">
-                    Please wait while we verify your email address...
-                  </p>
-                </div>
-              </div>
-            )}
+              )}
 
-            {status === 'success' && (
-              <div className="space-y-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary-100 rounded-2xl">
-                  <CheckCircle className="w-8 h-8 text-secondary-600" />
-                </div>
-                <div className="space-y-3">
-                  <h2 className="text-2xl font-bold text-text-primary">
-                    Email Verified Successfully!
-                  </h2>
-                  <p className="text-text-secondary">{message}</p>
-                  <p className="text-sm text-text-tertiary">
-                    You'll be redirected to the login page automatically...
-                  </p>
-                </div>
-                <Link
-                  to="/login"
-                  className="inline-block bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
-                >
-                  Continue to Login
-                </Link>
-              </div>
-            )}
-
-            {status === 'error' && (
-              <div className="space-y-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-accent-error/10 rounded-2xl">
-                  <XCircle className="w-8 h-8 text-accent-error" />
-                </div>
-                <div className="space-y-3">
-                  <h2 className="text-2xl font-bold text-text-primary">
-                    Verification Failed
-                  </h2>
-                  <p className="text-text-secondary">{message}</p>
-                </div>
-
-                <div className="space-y-3">
-                  <Link
-                    to="/signup"
-                    className="block bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
-                  >
-                    Try Signing Up Again
-                  </Link>
+              {status === 'success' && (
+                <div className="space-y-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary-100 rounded-2xl">
+                    <CheckCircle className="w-8 h-8 text-secondary-600" />
+                  </div>
+                  <div className="space-y-3">
+                    <h2 className="text-2xl font-bold text-text-primary">
+                      Email Verified Successfully!
+                    </h2>
+                    <p className="text-text-secondary">{message}</p>
+                    <p className="text-sm text-text-tertiary">
+                      You'll be redirected to the login page automatically...
+                    </p>
+                  </div>
                   <Link
                     to="/login"
-                    className="block text-primary-600 hover:text-primary-700 font-semibold transition-colors duration-200"
+                    className="inline-block bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
                   >
-                    Back to Login
+                    Continue to Login
                   </Link>
                 </div>
-              </div>
-            )}
+              )}
+
+              {status === 'error' && (
+                <div className="space-y-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-accent-error/10 rounded-2xl">
+                    <XCircle className="w-8 h-8 text-accent-error" />
+                  </div>
+                  <div className="space-y-3">
+                    <h2 className="text-2xl font-bold text-text-primary">
+                      Verification Failed
+                    </h2>
+                    <p className="text-text-secondary">{message}</p>
+                  </div>
+
+                  <div className="space-y-3">
+                    <Link
+                      to="/signup"
+                      className="block bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
+                    >
+                      Try Signing Up Again
+                    </Link>
+                    <Link
+                      to="/login"
+                      className="block text-primary-600 hover:text-primary-700 font-semibold transition-colors duration-200"
+                    >
+                      Back to Login
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
