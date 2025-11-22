@@ -24,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ showAuthButtons = true }) => {
           <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
             <Logo size="small" />
             <h1 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-              reviseFlow
+              Revise Flow
             </h1>
           </Link>
 

@@ -45,7 +45,7 @@ const LoginPage: React.FC = () => {
               <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
                 Welcome back!
               </h1>
-              <p className="mt-2 text-text-secondary">Sign in to continue to reviseFlow</p>
+              <p className="mt-2 text-text-secondary">Sign in to continue to Revise Flow</p>
             </div>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-5">

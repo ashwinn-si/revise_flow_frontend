@@ -1,7 +1,7 @@
 # Theme System Documentation
 
 ## Overview
-ReviseFlow now includes a comprehensive theme system that supports light mode, dark mode, and automatic system theme detection. The theme system is built using React Context and Tailwind CSS's dark mode support.
+Revise Flow now includes a comprehensive theme system that supports light mode, dark mode, and automatic system theme detection. The theme system is built using React Context and Tailwind CSS's dark mode support.
 
 ## Features
 

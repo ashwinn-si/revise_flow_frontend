@@ -96,7 +96,7 @@ client/
 ### 1. Clone and Install
 ```bash
 git clone <repository-url>
-cd reviseFlow/client
+cd Revise Flow/client
 npm install
 ```
 

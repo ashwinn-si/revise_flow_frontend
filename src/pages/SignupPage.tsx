@@ -77,7 +77,7 @@ const SignupPage: React.FC = () => {
           <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl">
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-                Join reviseFlow
+                Join Revise Flow
               </h1>
               <p className="mt-2 text-text-secondary">Create your account and start organizing</p>
             </div>

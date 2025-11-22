@@ -15,7 +15,7 @@ const TopNav: React.FC = () => {
           <div className="flex items-center space-x-3">
             <Logo size="small" />
             <h1 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-              reviseFlow
+              Revise Flow
             </h1>
           </div>
 

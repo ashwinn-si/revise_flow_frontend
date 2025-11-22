@@ -25,7 +25,7 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     // Get theme from localStorage or default to 'system'
-    const savedTheme = localStorage.getItem('reviseflow-theme') as Theme;
+    const savedTheme = localStorage.getItem('Revise Flow-theme') as Theme;
     return savedTheme || 'system';
   });
 
@@ -58,7 +58,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     root.classList.add(newEffectiveTheme);
 
     // Save theme preference to localStorage
-    localStorage.setItem('reviseflow-theme', theme);
+    localStorage.setItem('Revise Flow-theme', theme);
   }, [theme]);
 
   // Listen for system theme changes when using 'system' theme
