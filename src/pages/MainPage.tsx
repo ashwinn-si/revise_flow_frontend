@@ -49,7 +49,7 @@ const MainPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30 dark:from-background-dark dark:via-background-dark-secondary dark:to-primary-950/30">
       <Navbar />
 
       <div className="max-w-6xl mx-auto px-4 py-6 md:px-6 lg:px-8">
@@ -57,17 +57,17 @@ const MainPage: React.FC = () => {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-text-primary">
+              <h1 className="text-2xl md:text-3xl font-bold text-text-primary dark:text-text-dark-primary">
                 Good {new Date().getHours() < 12 ? 'morning' : new Date().getHours() < 18 ? 'afternoon' : 'evening'}!
               </h1>
-              <p className="text-text-secondary mt-1">
+              <p className="text-text-secondary dark:text-text-dark-secondary mt-1">
                 Let's make today productive
               </p>
             </div>
             <div className="hidden md:flex items-center space-x-3">
-              <div className="bg-surface border border-border rounded-2xl px-4 py-2">
-                <span className="text-sm text-text-tertiary">Today</span>
-                <div className="text-lg font-semibold text-text-primary">
+              <div className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-2xl px-4 py-2">
+                <span className="text-sm text-text-tertiary dark:text-text-dark-tertiary">Today</span>
+                <div className="text-lg font-semibold text-text-primary dark:text-text-dark-primary">
                   {new Date().toLocaleDateString('en-US', {
                     month: 'short',
                     day: 'numeric'
@@ -80,7 +80,7 @@ const MainPage: React.FC = () => {
 
         {/* Calendar Strip */}
         <div className="mb-8">
-          <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-6 shadow-lg">
+          <div className="bg-surface/60 dark:bg-surface-dark/60 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-6 shadow-lg">
             <CalendarStrip
               selectedDate={selectedDate}
               onDateSelect={handleDateSelect}
@@ -89,7 +89,7 @@ const MainPage: React.FC = () => {
         </div>
 
         {/* Day View */}
-        <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-6 shadow-lg">
+        <div className="bg-surface/60 dark:bg-surface-dark/60 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-6 shadow-lg">
           <DayView
             selectedDate={selectedDate}
             onEditTask={handleEditTask}

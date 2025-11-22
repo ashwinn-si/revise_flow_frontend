@@ -45,17 +45,17 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30 dark:from-background-dark dark:via-background-dark-secondary dark:to-primary-950/30">
       <Navbar />
 
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-text-primary dark:text-text-dark-primary mb-6">
             Master Your Learning with
-            <span className="text-primary-600 block">Spaced Revision</span>
+            <span className="text-primary-600 dark:text-primary-400 block">Spaced Revision</span>
           </h1>
-          <p className="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-text-secondary dark:text-text-dark-secondary mb-8 max-w-3xl mx-auto">
             RevisionFlow helps you log completed tasks and schedule intelligent spaced-revision
             reminders using scientifically-backed intervals to optimize your learning retention.
           </p>
@@ -68,7 +68,7 @@ const HomePage: React.FC = () => {
             </Link>
             <Link
               to="/login"
-              className="border-2 border-border hover:border-primary-300 hover:bg-primary-50 text-text-primary px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-200"
+              className="border-2 border-border dark:border-border-dark hover:border-primary-300 dark:hover:border-primary-400 hover:bg-primary-50 dark:hover:bg-primary-950 text-text-primary dark:text-text-dark-primary px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-200"
             >
               Sign In
             </Link>
@@ -79,10 +79,10 @@ const HomePage: React.FC = () => {
       {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-text-primary mb-4">
+          <h2 className="text-3xl font-bold text-text-primary dark:text-text-dark-primary mb-4">
             Powerful Features for Effective Learning
           </h2>
-          <p className="text-lg text-text-secondary">
+          <p className="text-lg text-text-secondary dark:text-text-dark-secondary">
             Everything you need to optimize your revision schedule and boost retention
           </p>
         </div>
@@ -91,16 +91,16 @@ const HomePage: React.FC = () => {
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
-              <div key={index} className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02]">
+              <div key={index} className="bg-surface/80 dark:bg-surface-dark/80 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02]">
                 <div className="flex items-center mb-4">
                   <div className="flex-shrink-0">
-                    <IconComponent className="h-8 w-8 text-primary-600" />
+                    <IconComponent className="h-8 w-8 text-primary-600 dark:text-primary-400" />
                   </div>
-                  <h3 className="ml-3 text-lg font-semibold text-text-primary">
+                  <h3 className="ml-3 text-lg font-semibold text-text-primary dark:text-text-dark-primary">
                     {feature.title}
                   </h3>
                 </div>
-                <p className="text-text-secondary">
+                <p className="text-text-secondary dark:text-text-dark-secondary">
                   {feature.description}
                 </p>
               </div>
@@ -110,42 +110,42 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* How It Works Section */}
-      <div className="bg-surface py-16">
+      <div className="bg-surface dark:bg-surface-dark py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
+            <h2 className="text-3xl font-bold text-text-primary dark:text-text-dark-primary mb-4">
               How RevisionFlow Works
             </h2>
-            <p className="text-lg text-text-secondary">
+            <p className="text-lg text-text-secondary dark:text-text-dark-secondary">
               Simple steps to supercharge your learning process
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">1</span>
+              <div className="bg-primary-100 dark:bg-primary-900/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-text-primary mb-2">Log Your Tasks</h3>
-              <p className="text-text-secondary">
+              <h3 className="text-xl font-semibold text-text-primary dark:text-text-dark-primary mb-2">Log Your Tasks</h3>
+              <p className="text-text-secondary dark:text-text-dark-secondary">
                 Add completed learning tasks, study sessions, or any content you want to revise.
               </p>
             </div>
             <div className="text-center">
-              <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">2</span>
+              <div className="bg-primary-100 dark:bg-primary-900/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-text-primary mb-2">Automatic Scheduling</h3>
-              <p className="text-text-secondary">
+              <h3 className="text-xl font-semibold text-text-primary dark:text-text-dark-primary mb-2">Automatic Scheduling</h3>
+              <p className="text-text-secondary dark:text-text-dark-secondary">
                 RevisionFlow automatically schedules revision reminders based on proven spaced repetition principles.
               </p>
             </div>
             <div className="text-center">
-              <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">3</span>
+              <div className="bg-primary-100 dark:bg-primary-900/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">3</span>
               </div>
-              <h3 className="text-xl font-semibold text-text-primary mb-2">Get Reminded & Review</h3>
-              <p className="text-text-secondary">
+              <h3 className="text-xl font-semibold text-text-primary dark:text-text-dark-primary mb-2">Get Reminded & Review</h3>
+              <p className="text-text-secondary dark:text-text-dark-secondary">
                 Receive timely email reminders and use the calendar view to complete your scheduled revisions.
               </p>
             </div>
@@ -172,7 +172,7 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-text-dark-secondary py-8">
+      <footer className="bg-gray-900 dark:bg-gray-950 text-text-dark-secondary py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h3 className="text-lg font-semibold text-text-dark-primary mb-4">📝 RevisionFlow</h3>

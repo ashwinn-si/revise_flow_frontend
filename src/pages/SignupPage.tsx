@@ -46,19 +46,19 @@ const SignupPage: React.FC = () => {
     return (
       <>
         <Navbar showAuthButtons={false} />
-        <div className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-secondary-50 via-background to-primary-50 flex items-center justify-center p-4">
+        <div className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-secondary-50 via-background to-primary-50 dark:from-secondary-950/30 dark:via-background-dark dark:to-primary-950/30 flex items-center justify-center p-4">
           <div className="w-full max-w-md">
-            <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl text-center">
+            <div className="bg-surface/80 dark:bg-surface-dark/80 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-8 shadow-xl text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-secondary-500 to-secondary-600 rounded-2xl mb-6 shadow-lg">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-bold text-text-primary mb-3">Account Created Successfully!</h2>
-              <p className="text-text-secondary mb-6">
+              <h2 className="text-2xl font-bold text-text-primary dark:text-text-dark-primary mb-3">Account Created Successfully!</h2>
+              <p className="text-text-secondary dark:text-text-dark-secondary mb-6">
                 We've sent a verification email to your inbox. Please check your email and click the verification link to complete your account setup.
               </p>
-              <div className="text-sm text-text-tertiary">
+              <div className="text-sm text-text-tertiary dark:text-text-dark-tertiary">
                 Redirecting to login in a few seconds...
               </div>
             </div>
@@ -71,20 +71,20 @@ const SignupPage: React.FC = () => {
   return (
     <>
       <Navbar showAuthButtons={false} />
-      <div className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-secondary-50 via-background to-primary-50 flex items-center justify-center p-4">
+      <div className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-secondary-50 via-background to-primary-50 dark:from-secondary-950/30 dark:via-background-dark dark:to-primary-950/30 flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           {/* Signup Card */}
-          <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl">
+          <div className="bg-surface/80 dark:bg-surface-dark/80 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-8 shadow-xl">
             <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent">
                 Join Revise Flow
               </h1>
-              <p className="mt-2 text-text-secondary">Create your account and start organizing</p>
+              <p className="mt-2 text-text-secondary dark:text-text-dark-secondary">Create your account and start organizing</p>
             </div>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-5">
                 <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-semibold text-text-primary">
+                  <label htmlFor="email" className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
                     Email Address
                   </label>
                   <input
@@ -95,13 +95,13 @@ const SignupPage: React.FC = () => {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-3.5 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-secondary-500/20 focus:border-secondary-500 transition-all duration-200 text-text-primary placeholder-text-tertiary"
+                    className="w-full px-4 py-3.5 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-secondary-500/20 focus:border-secondary-500 dark:focus:ring-secondary-400/30 dark:focus:border-secondary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary placeholder-text-tertiary dark:placeholder-text-dark-tertiary"
                     placeholder="Enter your email address"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="password" className="block text-sm font-semibold text-text-primary">
+                  <label htmlFor="password" className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
                     Password
                   </label>
                   <input
@@ -112,13 +112,13 @@ const SignupPage: React.FC = () => {
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-3.5 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-secondary-500/20 focus:border-secondary-500 transition-all duration-200 text-text-primary placeholder-text-tertiary"
+                    className="w-full px-4 py-3.5 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-secondary-500/20 focus:border-secondary-500 dark:focus:ring-secondary-400/30 dark:focus:border-secondary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary placeholder-text-tertiary dark:placeholder-text-dark-tertiary"
                     placeholder="Create a strong password"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="confirmPassword" className="block text-sm font-semibold text-text-primary">
+                  <label htmlFor="confirmPassword" className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
                     Confirm Password
                   </label>
                   <input
@@ -129,7 +129,7 @@ const SignupPage: React.FC = () => {
                     required
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full px-4 py-3.5 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-secondary-500/20 focus:border-secondary-500 transition-all duration-200 text-text-primary placeholder-text-tertiary"
+                    className="w-full px-4 py-3.5 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-secondary-500/20 focus:border-secondary-500 dark:focus:ring-secondary-400/30 dark:focus:border-secondary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary placeholder-text-tertiary dark:placeholder-text-dark-tertiary"
                     placeholder="Confirm your password"
                   />
                 </div>
@@ -154,11 +154,11 @@ const SignupPage: React.FC = () => {
 
           {/* Login link */}
           <div className="text-center mt-6">
-            <p className="text-text-secondary">
+            <p className="text-text-secondary dark:text-text-dark-secondary">
               Already have an account?{' '}
               <Link
                 to="/login"
-                className="font-semibold text-purple-600 hover:text-purple-700 transition-colors duration-200"
+                className="font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-500 transition-colors duration-200"
               >
                 Sign in
               </Link>

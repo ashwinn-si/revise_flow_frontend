@@ -85,10 +85,10 @@ const ResetPasswordPage: React.FC = () => {
     return (
       <>
         <Navbar showAuthButtons={false} />
-        <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+        <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-primary-950/30 dark:via-background-dark dark:to-secondary-950/30">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
-            <p className="mt-4 text-text-secondary">Verifying reset token...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 dark:border-primary-400 mx-auto"></div>
+            <p className="mt-4 text-text-secondary dark:text-text-dark-secondary">Verifying reset token...</p>
           </div>
         </div>
       </>
@@ -99,14 +99,14 @@ const ResetPasswordPage: React.FC = () => {
     return (
       <>
         <Navbar showAuthButtons={false} />
-        <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 px-4">
+        <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-primary-950/30 dark:via-background-dark dark:to-secondary-950/30 px-4">
           <div className="w-full max-w-md">
-            <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl text-center">
+            <div className="bg-surface/80 dark:bg-surface-dark/80 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-8 shadow-xl text-center">
               <div className="mx-auto w-16 h-16 bg-gradient-to-r from-accent-error to-red-600 rounded-full flex items-center justify-center mb-6">
                 <AlertCircle className="w-8 h-8 text-white" />
               </div>
-              <h1 className="text-2xl font-semibold text-text-primary mb-4">Invalid Reset Link</h1>
-              <p className="text-text-secondary mb-6">
+              <h1 className="text-2xl font-semibold text-text-primary dark:text-text-dark-primary mb-4">Invalid Reset Link</h1>
+              <p className="text-text-secondary dark:text-text-dark-secondary mb-6">
                 This password reset link is invalid or has expired. Please request a new one.
               </p>
               <div className="space-y-4">
@@ -118,7 +118,7 @@ const ResetPasswordPage: React.FC = () => {
                 </Link>
                 <Link
                   to="/login"
-                  className="block w-full py-3.5 px-6 bg-background border border-border text-text-primary font-medium rounded-2xl hover:bg-background-secondary transition-all duration-200"
+                  className="block w-full py-3.5 px-6 bg-background dark:bg-background-dark border border-border dark:border-border-dark text-text-primary dark:text-text-dark-primary font-medium rounded-2xl hover:bg-background-secondary dark:hover:bg-background-dark-secondary transition-all duration-200"
                 >
                   Back to Login
                 </Link>
@@ -133,17 +133,17 @@ const ResetPasswordPage: React.FC = () => {
   return (
     <>
       <Navbar showAuthButtons={false} />
-      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 px-4">
+      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-primary-950/30 dark:via-background-dark dark:to-secondary-950/30 px-4">
         <div className="w-full max-w-md">
-          <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl">
+          <div className="bg-surface/80 dark:bg-surface-dark/80 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-8 shadow-xl">
             <div className="text-center mb-8">
               {isSuccess ? (
                 <div className="space-y-4">
                   <div className="mx-auto w-16 h-16 bg-gradient-to-r from-accent-success to-secondary-500 rounded-full flex items-center justify-center">
                     <CheckCircle className="w-8 h-8 text-white" />
                   </div>
-                  <h1 className="text-2xl font-semibold text-text-primary">Password Reset Complete</h1>
-                  <p className="text-text-secondary">
+                  <h1 className="text-2xl font-semibold text-text-primary dark:text-text-dark-primary">Password Reset Complete</h1>
+                  <p className="text-text-secondary dark:text-text-dark-secondary">
                     Your password has been successfully reset. You'll be redirected to login in a moment.
                   </p>
                 </div>
@@ -152,8 +152,8 @@ const ResetPasswordPage: React.FC = () => {
                   <div className="mx-auto w-16 h-16 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center">
                     <KeyRound className="w-8 h-8 text-white" />
                   </div>
-                  <h1 className="text-2xl font-semibold text-text-primary">Reset Your Password</h1>
-                  <p className="text-text-secondary">
+                  <h1 className="text-2xl font-semibold text-text-primary dark:text-text-dark-primary">Reset Your Password</h1>
+                  <p className="text-text-secondary dark:text-text-dark-secondary">
                     Enter your new password below. Make sure it's secure and memorable.
                   </p>
                 </div>
@@ -178,7 +178,7 @@ const ResetPasswordPage: React.FC = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-text-primary mb-2">
+                  <label htmlFor="password" className="block text-sm font-medium text-text-primary dark:text-text-dark-primary mb-2">
                     New Password
                   </label>
                   <div className="relative">
@@ -187,7 +187,7 @@ const ResetPasswordPage: React.FC = () => {
                       type={showPassword ? 'text' : 'password'}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="w-full px-4 py-3.5 pr-12 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-200"
+                      className="w-full px-4 py-3.5 pr-12 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 dark:focus:ring-primary-400/30 dark:focus:border-primary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary placeholder-text-tertiary dark:placeholder-text-dark-tertiary"
                       placeholder="Enter new password"
                       required
                       minLength={4}
@@ -195,16 +195,16 @@ const ResetPasswordPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-text-tertiary hover:text-text-secondary transition-colors duration-200"
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-text-tertiary dark:text-text-dark-tertiary hover:text-text-secondary dark:hover:text-text-dark-secondary transition-colors duration-200"
                     >
                       {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                     </button>
                   </div>
-                  <p className="text-xs text-text-tertiary mt-1">Must be at least 4 characters long</p>
+                  <p className="text-xs text-text-tertiary dark:text-text-dark-tertiary mt-1">Must be at least 4 characters long</p>
                 </div>
 
                 <div>
-                  <label htmlFor="confirmPassword" className="block text-sm font-medium text-text-primary mb-2">
+                  <label htmlFor="confirmPassword" className="block text-sm font-medium text-text-primary dark:text-text-dark-primary mb-2">
                     Confirm New Password
                   </label>
                   <div className="relative">
@@ -213,14 +213,14 @@ const ResetPasswordPage: React.FC = () => {
                       type={showConfirmPassword ? 'text' : 'password'}
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
-                      className="w-full px-4 py-3.5 pr-12 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-200"
+                      className="w-full px-4 py-3.5 pr-12 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 dark:focus:ring-primary-400/30 dark:focus:border-primary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary placeholder-text-tertiary dark:placeholder-text-dark-tertiary"
                       placeholder="Confirm new password"
                       required
                     />
                     <button
                       type="button"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-text-tertiary hover:text-text-secondary transition-colors duration-200"
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-text-tertiary dark:text-text-dark-tertiary hover:text-text-secondary dark:hover:text-text-dark-secondary transition-colors duration-200"
                     >
                       {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                     </button>
@@ -249,9 +249,9 @@ const ResetPasswordPage: React.FC = () => {
                 </button>
 
                 <div className="text-center pt-4">
-                  <p className="text-sm text-text-secondary">
+                  <p className="text-sm text-text-secondary dark:text-text-dark-secondary">
                     Remember your password?{' '}
-                    <Link to="/login" className="text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200">
+                    <Link to="/login" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-500 font-medium transition-colors duration-200">
                       Back to Login
                     </Link>
                   </p>

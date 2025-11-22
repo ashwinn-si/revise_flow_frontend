@@ -37,20 +37,20 @@ const LoginPage: React.FC = () => {
   return (
     <>
       <Navbar showAuthButtons={false} />
-      <div className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-primary-50 via-background to-secondary-50 flex items-center justify-center p-4">
+      <div className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-primary-50 via-background to-secondary-50 dark:from-primary-950/30 dark:via-background-dark dark:to-secondary-950/30 flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           {/* Login Card */}
-          <div className="bg-surface/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-xl">
+          <div className="bg-surface/80 dark:bg-surface-dark/80 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-8 shadow-xl">
             <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent">
                 Welcome back!
               </h1>
-              <p className="mt-2 text-text-secondary">Sign in to continue to Revise Flow</p>
+              <p className="mt-2 text-text-secondary dark:text-text-dark-secondary">Sign in to continue to Revise Flow</p>
             </div>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-5">
                 <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-semibold text-text-primary">
+                  <label htmlFor="email" className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
                     Email Address
                   </label>
                   <input
@@ -61,13 +61,13 @@ const LoginPage: React.FC = () => {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-3.5 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-200 text-text-primary placeholder-text-tertiary"
+                    className="w-full px-4 py-3.5 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 dark:focus:ring-primary-400/30 dark:focus:border-primary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary placeholder-text-tertiary dark:placeholder-text-dark-tertiary"
                     placeholder="Enter your email address"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="password" className="block text-sm font-semibold text-text-primary">
+                  <label htmlFor="password" className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
                     Password
                   </label>
                   <input
@@ -78,7 +78,7 @@ const LoginPage: React.FC = () => {
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-3.5 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-200 text-text-primary placeholder-text-tertiary"
+                    className="w-full px-4 py-3.5 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 dark:focus:ring-primary-400/30 dark:focus:border-primary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary placeholder-text-tertiary dark:placeholder-text-dark-tertiary"
                     placeholder="Enter your password"
                   />
                 </div>
@@ -103,7 +103,7 @@ const LoginPage: React.FC = () => {
               <div className="text-center mt-4">
                 <Link
                   to="/forgot-password"
-                  className="text-sm text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200"
+                  className="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-500 font-medium transition-colors duration-200"
                 >
                   Forgot your password?
                 </Link>
@@ -113,11 +113,11 @@ const LoginPage: React.FC = () => {
 
           {/* Sign up link */}
           <div className="text-center mt-6">
-            <p className="text-text-secondary">
+            <p className="text-text-secondary dark:text-text-dark-secondary">
               Don't have an account?{' '}
               <Link
                 to="/signup"
-                className="font-semibold text-primary-600 hover:text-primary-700 transition-colors duration-200"
+                className="font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-500 transition-colors duration-200"
               >
                 Sign up for free
               </Link>
