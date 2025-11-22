@@ -7,6 +7,11 @@ export default {
   darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'Open Sans', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+        poppins: ['Poppins', 'Open Sans', 'sans-serif'],
+        'open-sans': ['Open Sans', 'Poppins', 'sans-serif'],
+      },
       colors: {
         // Neutral background colors
         background: {
