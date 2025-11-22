@@ -22,15 +22,15 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-background-secondary;
+  @apply bg-background-secondary dark:bg-background-dark-secondary;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-border rounded-full;
+  @apply bg-border dark:bg-border-dark rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-text-tertiary;
+  @apply bg-text-tertiary dark:bg-text-dark-tertiary;
 }
 
 /* Scrollbar hide utility */
@@ -50,7 +50,7 @@ html {
 
 /* Enhanced focus states for accessibility */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 dark:focus:ring-primary-400/30 dark:focus:border-primary-400;
 }
 
 /* Backdrop blur utilities */
@@ -139,13 +139,13 @@ html {
 
 /* Interactive button styles */
 .btn-primary {
-  @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary-500/20 shadow-lg;
+  @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary-500/20 shadow-lg dark:shadow-primary-500/10;
 }
 
 .btn-secondary {
-  @apply bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-secondary-500/20 shadow-lg;
+  @apply bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-secondary-500/20 shadow-lg dark:shadow-secondary-500/10;
 }
 
 .btn-outline {
-  @apply border-2 border-primary-500 text-primary-600 hover:bg-primary-500 hover:text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20;
+  @apply border-2 border-primary-500 text-primary-600 hover:bg-primary-500 hover:text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-400;
 }

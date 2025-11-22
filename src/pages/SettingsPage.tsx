@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAuth } from '../contexts/AuthContext';
 import Navbar from '../components/Navbar';
+import ThemeToggle from '../components/ThemeToggle';
 
 const SettingsPage: React.FC = () => {
   const { user, logout } = useAuth();
@@ -25,56 +26,56 @@ const SettingsPage: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30">
+      <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30 dark:from-background-dark dark:via-background-dark-secondary dark:to-primary-950/30">
         <div className="max-w-4xl mx-auto px-4 py-8 md:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-8">
             <div className="flex items-center space-x-4 mb-6">
               <button
                 onClick={() => window.history.back()}
-                className="p-3 bg-surface border border-border rounded-2xl hover:bg-background-secondary transition-colors shadow-sm"
+                className="p-3 bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-2xl hover:bg-background-secondary dark:hover:bg-background-dark-secondary transition-colors shadow-sm"
               >
-                <svg className="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-text-secondary dark:text-text-dark-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               <div>
-                <h1 className="text-3xl font-bold text-text-primary">Settings</h1>
-                <p className="mt-1 text-text-secondary">Manage your account and preferences</p>
+                <h1 className="text-3xl font-bold text-text-primary dark:text-text-dark-primary">Settings</h1>
+                <p className="mt-1 text-text-secondary dark:text-text-dark-secondary">Manage your account and preferences</p>
               </div>
             </div>
           </div>
 
           <div className="grid gap-6 md:gap-8">
             {/* Account Section */}
-            <div className="bg-surface/60 backdrop-blur-sm border border-border/50 rounded-3xl p-8 shadow-lg">
+            <div className="bg-surface/60 dark:bg-surface-dark/60 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-8 shadow-lg">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="p-2 bg-primary-100 rounded-xl">
-                  <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="p-2 bg-primary-100 dark:bg-primary-900/50 rounded-xl">
+                  <svg className="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
-                <h2 className="text-xl font-semibold text-text-primary">Account Information</h2>
+                <h2 className="text-xl font-semibold text-text-primary dark:text-text-dark-primary">Account Information</h2>
               </div>
 
               <div className="grid gap-6 md:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="block text-sm font-semibold text-text-primary">
+                  <label className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
                     Email Address
                   </label>
-                  <div className="p-4 bg-background border border-border rounded-2xl">
-                    <p className="text-text-primary font-medium">{user?.email}</p>
+                  <div className="p-4 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl">
+                    <p className="text-text-primary dark:text-text-dark-primary font-medium">{user?.email}</p>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block text-sm font-semibold text-text-primary">
+                  <label className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
                     Timezone
                   </label>
                   <select
                     value={timezone}
                     onChange={(e) => handleTimezoneChange(e.target.value)}
-                    className="w-full px-4 py-4 bg-background border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-200 text-text-primary disabled:opacity-50"
+                    className="w-full px-4 py-4 bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 dark:focus:ring-primary-400/30 dark:focus:border-primary-400 transition-all duration-200 text-text-primary dark:text-text-dark-primary disabled:opacity-50"
                     disabled={loading}
                   >
                     <option value="UTC">UTC (Coordinated Universal Time)</option>
@@ -87,6 +88,30 @@ const SettingsPage: React.FC = () => {
                     <option value="Asia/Tokyo">Tokyo</option>
                     <option value="Australia/Sydney">Sydney</option>
                   </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Theme Section */}
+            <div className="bg-surface/60 dark:bg-surface-dark/60 backdrop-blur-sm border border-border/50 dark:border-border-dark/50 rounded-3xl p-8 shadow-lg">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="p-2 bg-accent-info/10 dark:bg-accent-info/20 rounded-xl">
+                  <svg className="w-6 h-6 text-accent-info" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5H9a2 2 0 00-2 2v12a4 4 0 004 4h10a2 2 0 002-2V7a2 2 0 00-2-2z" />
+                  </svg>
+                </div>
+                <h2 className="text-xl font-semibold text-text-primary dark:text-text-dark-primary">Appearance</h2>
+              </div>
+
+              <div className="space-y-6">
+                <div className="space-y-3">
+                  <label className="block text-sm font-semibold text-text-primary dark:text-text-dark-primary">
+                    Theme Preference
+                  </label>
+                  <p className="text-sm text-text-secondary dark:text-text-dark-secondary mb-4">
+                    Choose your preferred color theme. System option will automatically switch based on your device settings.
+                  </p>
+                  <ThemeToggle variant="switch" size="md" showLabel={true} />
                 </div>
               </div>
             </div>

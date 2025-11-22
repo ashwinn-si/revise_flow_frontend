@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import LoadingModal from './components/LoadingModal';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -53,77 +54,79 @@ const AuthRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 function App() {
   return (
-    <Router>
-      <AuthProvider>
-        <ToastContainer position="top-right" autoClose={3000} />
-        <div className="min-h-screen">
-          <Routes>
-            {/* Public homepage */}
-            <Route path="/" element={<HomePage />} />
+    <ThemeProvider>
+      <Router>
+        <AuthProvider>
+          <ToastContainer position="top-right" autoClose={3000} />
+          <div className="min-h-screen">
+            <Routes>
+              {/* Public homepage */}
+              <Route path="/" element={<HomePage />} />
 
-            {/* Auth routes */}
-            <Route
-              path="/login"
-              element={
-                <AuthRoute>
-                  <LoginPage />
-                </AuthRoute>
-              }
-            />
-            <Route
-              path="/signup"
-              element={
-                <AuthRoute>
-                  <SignupPage />
-                </AuthRoute>
-              }
-            />
-            <Route
-              path="/verify-email"
-              element={
-                <AuthRoute>
-                  <VerifyEmailPage />
-                </AuthRoute>
-              }
-            />
-            <Route
-              path="/forgot-password"
-              element={
-                <AuthRoute>
-                  <ForgotPasswordPage />
-                </AuthRoute>
-              }
-            />
-            <Route
-              path="/reset-password/:token"
-              element={
-                <AuthRoute>
-                  <ResetPasswordPage />
-                </AuthRoute>
-              }
-            />
+              {/* Auth routes */}
+              <Route
+                path="/login"
+                element={
+                  <AuthRoute>
+                    <LoginPage />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <AuthRoute>
+                    <SignupPage />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/verify-email"
+                element={
+                  <AuthRoute>
+                    <VerifyEmailPage />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/forgot-password"
+                element={
+                  <AuthRoute>
+                    <ForgotPasswordPage />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/reset-password/:token"
+                element={
+                  <AuthRoute>
+                    <ResetPasswordPage />
+                  </AuthRoute>
+                }
+              />
 
-            {/* Protected routes */}
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <MainPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/settings"
-              element={
-                <ProtectedRoute>
-                  <SettingsPage />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-        </div>
-      </AuthProvider>
-    </Router>
+              {/* Protected routes */}
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <MainPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/settings"
+                element={
+                  <ProtectedRoute>
+                    <SettingsPage />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </div>
+        </AuthProvider>
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { Settings, LogOut } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import Logo from './Logo';
+import ThemeToggle from './ThemeToggle';
 
 const TopNav: React.FC = () => {
   const { user, logout } = useAuth();
 
   return (
-    <nav className="bg-surface/80 backdrop-blur-sm border-b border-border/50 shadow-sm sticky top-0 z-30">
+    <nav className="bg-surface/80 dark:bg-surface-dark/80 backdrop-blur-sm border-b border-border/50 dark:border-border-dark/50 shadow-sm sticky top-0 z-30">
       <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-3">
@@ -21,19 +22,21 @@ const TopNav: React.FC = () => {
           <div className="flex items-center space-x-3">
             <div className="hidden sm:flex items-center space-x-3">
               <div className="text-right">
-                <p className="text-sm font-medium text-text-primary">
+                <p className="text-sm font-medium text-text-primary dark:text-text-dark-primary">
                   {user?.email?.split('@')[0]}
                 </p>
-                <p className="text-xs text-text-tertiary">
+                <p className="text-xs text-text-tertiary dark:text-text-dark-tertiary">
                   {user?.email}
                 </p>
               </div>
             </div>
 
             <div className="flex items-center space-x-1">
+              <ThemeToggle variant="icon" size="md" />
+
               <Link
                 to="/settings"
-                className="p-2.5 text-text-secondary hover:text-text-primary hover:bg-background-secondary rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                className="p-2.5 text-text-secondary dark:text-text-dark-secondary hover:text-text-primary dark:hover:text-text-dark-primary hover:bg-background-secondary dark:hover:bg-background-dark-secondary rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
                 title="Settings"
               >
                 <Settings size={20} />
@@ -41,7 +44,7 @@ const TopNav: React.FC = () => {
 
               <button
                 onClick={logout}
-                className="p-2.5 text-text-secondary hover:text-accent-error hover:bg-accent-error/10 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-error/20"
+                className="p-2.5 text-text-secondary dark:text-text-dark-secondary hover:text-accent-error hover:bg-accent-error/10 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-error/20"
                 title="Sign out"
               >
                 <LogOut size={20} />

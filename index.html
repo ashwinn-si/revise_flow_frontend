@@ -1,12 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <title>reviseFlow - Spaced Revision Scheduler</title>
+    <script>
+      // Prevent flash of unstyled content by applying theme immediately
+      (function() {
+        const savedTheme = localStorage.getItem('reviseflow-theme') || 'system';
+        let effectiveTheme = savedTheme;
+        
+        if (savedTheme === 'system') {
+          effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        
+        document.documentElement.className = effectiveTheme;
+      })();
+    </script>
   </head>
-  <body>
+  <body class="bg-background dark:bg-background-dark text-text-primary dark:text-text-dark-primary transition-colors">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
