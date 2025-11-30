@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAuth } from '../contexts/AuthContext';
-import Navbar from '../components/Navbar';
+import TopNav from '../components/TopNav';
 import ThemeToggle from '../components/ThemeToggle';
 import { Link } from 'react-router-dom';
 
@@ -26,7 +26,7 @@ const SettingsPage: React.FC = () => {
 
   return (
     <>
-      <Navbar />
+      <TopNav />
       <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30 dark:from-background-dark dark:via-background-dark-secondary dark:to-primary-950/30">
         <div className="max-w-4xl mx-auto px-4 py-8 md:px-6 lg:px-8">
           {/* Header */}

@@ -53,6 +53,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   useEffect(() => {
     const initializeAuth = async () => {
       try {
+        setLoading(true);
         const success = await refreshAuth();
         if (!success) {
           setUser(null);
@@ -75,6 +76,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (response.data?.accessToken) {
         apiService.setAuthToken(response.data.accessToken);
 
+        // Set user data if provided
         if (response.data.user) {
           setUser(response.data.user);
         }
@@ -82,12 +84,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         return true;
       }
 
+      // Clear auth state if no access token received
+      setUser(null);
+      apiService.setAuthToken(null);
       return false;
     } catch (error: any) {
-      // If it's 401, clear auth state but don't show error (handled elsewhere)
-      if (error.response?.status === 401) {
-        setUser(null);
-        apiService.setAuthToken(null);
+      // Clear auth state on error
+      setUser(null);
+      apiService.setAuthToken(null);
+
+      // Only log non-401 errors (401 is expected when no valid refresh token)
+      if (error.response?.status !== 401) {
+        console.error('Auth refresh error:', error);
       }
 
       return false;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import Navbar from '../components/Navbar';
+import TopNav from '../components/TopNav';
 import CalendarStrip from '../components/CalendarStrip';
 import DayView from '../components/DayView';
 import TaskModal from '../components/TaskModal';
@@ -50,7 +50,7 @@ const MainPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary-50/30 dark:from-background-dark dark:via-background-dark-secondary dark:to-primary-950/30">
-      <Navbar />
+      <TopNav />
 
       <div className="max-w-6xl mx-auto px-4 py-6 md:px-6 lg:px-8">
         {/* Welcome Section */}
